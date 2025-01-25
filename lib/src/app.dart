@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:words_explorer_app/src/features/books_collection/view/books_screen.dart';
 import 'home_page.dart';
 
 
@@ -10,11 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'WordsExplorer',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const BooksScreen(),
     );
   }
 }
