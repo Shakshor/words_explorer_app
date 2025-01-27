@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:words_explorer_app/src/features/books_collection/view/books_screen.dart';
+import 'package:words_explorer_app/src/features/words_list/view/words_screen.dart';
 import 'home_page.dart';
 
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const BooksScreen(),
+      home: const WordsScreen(),
     );
   }
 }
