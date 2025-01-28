@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:words_explorer_app/src/features/words_list/components/words_row_widget.dart';
-import 'package:words_explorer_app/src/features/words_list/repository/words_list_repo.dart';
 import '../provider/words_provider.dart';
 
 class WordsScreen extends ConsumerWidget {
@@ -14,6 +13,9 @@ class WordsScreen extends ConsumerWidget {
     final asyncWords = ref.watch(wordsAsyncNotifierProvider);
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
         backgroundColor: Colors.blue,
         title: const Text(
             'Words Screen',
@@ -37,7 +39,8 @@ class WordsScreen extends ConsumerWidget {
           // ),
 
           // data_show
-          Expanded(
+          Flexible(
+            flex: 1,
             child: asyncWords.when(
                 error: (error, stacktrace){
                   return Text(error.toString());
