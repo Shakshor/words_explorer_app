@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_color.dart';
+import 'components/header_card_widget.dart';
+import 'components/statistics_header_part.dart';
 
 class ProfileTabScreen extends StatelessWidget {
   const ProfileTabScreen({super.key});
@@ -7,7 +10,8 @@ class ProfileTabScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green.shade700,
+        // backgroundColor: Colors.green.shade700,
+        backgroundColor: AppColor.greenColor,
         leading: Row(
           children: [
             const SizedBox(width: 20), // Add spacing
@@ -59,6 +63,164 @@ class ProfileTabScreen extends StatelessWidget {
           ),
         ],
       ),
+
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // header_card
+            const HeaderCardWidget(),
+            // divider
+            const Divider(
+              color: AppColor.brightGray,
+              thickness: 2,
+            ),
+        
+            /*------------------statistics--------------*/
+            // title_part
+            const Padding(
+              padding: EdgeInsets.all(14.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Daily Reading',
+                    style: TextStyle(
+                      letterSpacing: 0,
+                      fontSize: 16,
+                      color: AppColor.tuscanRed,
+                    ),
+                  ),
+                  Icon(
+                      Icons.assignment_outlined,
+                      color: Colors.grey,
+                      size: 26,
+                      // Icons.menu_book_outlined,
+                  ),
+                ],
+              ),
+            ),
+        
+            // checking_part
+            const StatisticsHeaderPart(),
+        
+            /// chart_part_is_not_done
+            /// progress_bar_is_not_done
+        
+            // badges_part
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Badges',
+                    style: TextStyle(
+                      letterSpacing: 0,
+                      fontSize: 16,
+                      color: AppColor.tuscanRed,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: (){
+        
+                      },
+                      child: Text(
+                          'View all',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.greenColor,
+                        ),
+                      ),
+                  ),
+                ],
+              ),
+            ),
+        
+            // badge_row
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          'assets/images/streak_image.png',
+                          width: 80,
+                          height: 80,
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                            'Consistent',
+                          style: TextStyle(
+                            letterSpacing: 0,
+                            fontSize: 16,
+                            color: AppColor.graniteGray,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          'assets/images/streak_image.png',
+                          width: 80,
+                          height: 80,
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          'Consistent',
+                          style: TextStyle(
+                            letterSpacing: 0,
+                            fontSize: 16,
+                            color: AppColor.graniteGray,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          'assets/images/streak_image.png',
+                          width: 80,
+                          height: 80,
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          'Consistent',
+                          style: TextStyle(
+                            letterSpacing: 0,
+                            fontSize: 16,
+                            color: AppColor.graniteGray,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
+
+
+

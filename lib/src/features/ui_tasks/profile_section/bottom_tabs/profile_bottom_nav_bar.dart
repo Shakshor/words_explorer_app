@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:words_explorer_app/src/features/ui_tasks/profile_section/profile_view/profile_tab_view.dart';
 
+import '../../../../utils/app_color.dart';
+
 class ProfileBottomNav extends StatefulWidget {
   const ProfileBottomNav({super.key});
 
@@ -50,7 +52,8 @@ class _ProfileBottomNavState extends State<ProfileBottomNav> {
       bottomNavigationBar: BottomNavigationBar(
 
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.green.shade400,
+        // backgroundColor: Colors.green.shade400,
+        backgroundColor: AppColor.greenColor,
         currentIndex: _currentIndex,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white38,
