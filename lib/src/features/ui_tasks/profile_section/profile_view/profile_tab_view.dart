@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:words_explorer_app/src/features/ui_tasks/profile_section/profile_view/components/custom_button.dart';
 import '../../../../utils/app_color.dart';
 import 'components/badge_section.dart';
+import 'components/common_header_title_widget.dart';
+import 'components/daily_ayah_card_widget.dart';
 import 'components/header_card_widget.dart';
+import 'components/lifetime_activity_card_widget.dart';
+import 'components/member_card_row_widget.dart';
 import 'components/statistics_header_part.dart';
 
 class ProfileTabScreen extends StatelessWidget {
@@ -65,7 +70,7 @@ class ProfileTabScreen extends StatelessWidget {
         ],
       ),
 
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             // header_card
@@ -75,7 +80,6 @@ class ProfileTabScreen extends StatelessWidget {
               color: AppColor.brightGray,
               thickness: 2,
             ),
-        
             /*------------------statistics--------------*/
             // title_part
             const Padding(
@@ -101,48 +105,20 @@ class ProfileTabScreen extends StatelessWidget {
                 ],
               ),
             ),
-        
             // checking_part
             const StatisticsHeaderPart(),
         
             /// chart_part_is_not_done
             /// progress_bar_is_not_done
-        
             /*----------badges_part---------------*/
             // header_part
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Badges',
-                    style: TextStyle(
-                      letterSpacing: 0,
-                      fontSize: 16,
-                      color: AppColor.tuscanRed,
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: (){
-        
-                      },
-                      child: Text(
-                          'View all',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.greenColor,
-                        ),
-                      ),
-                  ),
-                ],
-              ),
+            const CommonHeaderTitleWidget(
+              dynamicTitle: 'Badges',
+              buttonTitle: 'View all',
             ),
             // badge_column
             const BadgeSectionWidget(),
-            /*----------badges_part---------------*/
+            /*----------daily_ayah_part---------------*/
             const Align(
               alignment: Alignment.topLeft,
               child: Padding(
@@ -158,12 +134,230 @@ class ProfileTabScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const DailyAyahCardWidget(),
+            /*----------lifetime_part---------------*/
+            const CommonHeaderTitleWidget(
+              dynamicTitle: 'Lifetime Activity',
+              buttonTitle: 'Done',
+            ),
+            const LifetimeActivityRowWidget(),
+            /*----------member_part---------------*/
+            const Padding(
+              padding: EdgeInsets.all(14.0),
+              child: Text(
+                  'Log in to track your statistics',
+                style: TextStyle(
+                  color: AppColor.greenColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16
+                ),
+              ),
+            ),
+            MemberCustomCardWidget(),
+            SizedBox(
+              height: 30,
+            )
           ],
         ),
       ),
     );
   }
 }
+
+class MemberCustomCardWidget extends StatelessWidget {
+  const MemberCustomCardWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+        color: Colors.transparent,
+        elevation: 0,
+        margin: const EdgeInsets.all(14.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15), // Optional: Rounded corners
+          side: BorderSide(
+            color: Colors.grey.shade300, // Border color
+            width: 1,          // Border width
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 10,
+            bottom: 16,
+            left: 10,
+            right: 10,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                padding:  EdgeInsets.only(
+                  top: 10,
+                  bottom: 10,
+                ),
+                child: Text(
+                    'Become a Member',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const MemberCardRowWidget(
+                dynamicIcon: Icons.favorite_outlined,
+                dynamicText: const Text.rich(
+                  style: TextStyle(
+                    color: AppColor.graniteGray,
+                  ),
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Keep Quran Safe from Ads\n',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Our commitment to keep the Quran ',
+                      ),
+                      TextSpan(
+                        text: 'ad-free\n',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.graniteGray,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'is possible because of the support of\npeople like you',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              const MemberCardRowWidget(
+                dynamicIcon: Icons.bolt,
+                dynamicText: const Text.rich(
+                  style: TextStyle(
+                    color: AppColor.graniteGray,
+                  ),
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '10M+ Users\n',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Over 10 million users have spent more\n',
+                      ),
+                      TextSpan(
+                        text: 'than ',
+                      ),
+                      TextSpan(
+                        text: '100 million hours ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.graniteGray,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'reading the Quran\n',
+                      ),
+                      TextSpan(
+                        text: 'through this app',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Use a loop to create star icons dynamically
+                  for (int i = 0; i < 5; i++)
+                    const Icon(
+                        Icons.star,
+                        color: AppColor.tuscanRed,
+                        size: 16.0
+                    ),
+                  const SizedBox(width: 8.0),
+                  const Text(
+                      '200k+ positive reviews',
+                    style: TextStyle(
+                      color: AppColor.tuscanRed,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24.0),
+              CustomElevatedButton(
+                  onPressed: (){
+
+                  },
+                  btnDynamicText: 'Donate Monthly',
+                  buttonColor: Colors.black,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LifetimeActivityRowWidget extends StatelessWidget {
+  const LifetimeActivityRowWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(14.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: LifetimeActivityCardWidget(
+              dynamicIcon: Icons.bolt_outlined,
+              dynamicLabel: 'Ayah Read',
+            ),
+          ),
+          Expanded(
+            child: LifetimeActivityCardWidget(
+              dynamicIcon: Icons.timer_outlined,
+              dynamicLabel: 'Time Spent',
+            ),
+          ),
+          Expanded(
+            child: LifetimeActivityCardWidget(
+              dynamicIcon: Icons.emoji_events_outlined,
+              dynamicLabel: 'Best Streak',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
 
 
 
