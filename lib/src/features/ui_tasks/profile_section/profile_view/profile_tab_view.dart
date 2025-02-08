@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../utils/app_color.dart';
+import 'components/badge_section.dart';
 import 'components/header_card_widget.dart';
 import 'components/statistics_header_part.dart';
 
@@ -107,7 +108,8 @@ class ProfileTabScreen extends StatelessWidget {
             /// chart_part_is_not_done
             /// progress_bar_is_not_done
         
-            // badges_part
+            /*----------badges_part---------------*/
+            // header_part
             Padding(
               padding: const EdgeInsets.all(14.0),
               child: Row(
@@ -138,89 +140,33 @@ class ProfileTabScreen extends StatelessWidget {
                 ],
               ),
             ),
-        
-            // badge_row
-            Padding(
-              padding: const EdgeInsets.all(14.0),
+            // badge_column
+            const BadgeSectionWidget(),
+            /*----------badges_part---------------*/
+            const Align(
+              alignment: Alignment.topLeft,
               child: Padding(
-                padding: const EdgeInsets.all(14.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset(
-                          'assets/images/streak_image.png',
-                          width: 80,
-                          height: 80,
-                        ),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                            'Consistent',
-                          style: TextStyle(
-                            letterSpacing: 0,
-                            fontSize: 16,
-                            color: AppColor.graniteGray,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset(
-                          'assets/images/streak_image.png',
-                          width: 80,
-                          height: 80,
-                        ),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                          'Consistent',
-                          style: TextStyle(
-                            letterSpacing: 0,
-                            fontSize: 16,
-                            color: AppColor.graniteGray,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset(
-                          'assets/images/streak_image.png',
-                          width: 80,
-                          height: 80,
-                        ),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                          'Consistent',
-                          style: TextStyle(
-                            letterSpacing: 0,
-                            fontSize: 16,
-                            color: AppColor.graniteGray,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                padding:  EdgeInsets.all(14.0),
+                child: Text(
+                  'Daily Ayah',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    letterSpacing: 0,
+                    fontSize: 16,
+                    color: AppColor.tuscanRed,
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+
 
 
 
