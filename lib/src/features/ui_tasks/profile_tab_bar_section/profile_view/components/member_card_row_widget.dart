@@ -20,6 +20,7 @@ class MemberCardRowWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
+              elevation: 0,
               color: AppColor.brightGray,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(35), // Optional: Rounded corners

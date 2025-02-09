@@ -107,9 +107,10 @@ class ProfileTabScreen extends StatelessWidget {
             ),
             // checking_part
             const StatisticsHeaderPart(),
-        
-            /// chart_part_is_not_done
-            /// progress_bar_is_not_done
+            // chart_part_is_not_done
+            const CustomBarChartWidget(),
+            // streak_progress
+            const CustomStreakProgressCardWidget(),
             /*----------badges_part---------------*/
             // header_part
             const CommonHeaderTitleWidget(
@@ -153,10 +154,262 @@ class ProfileTabScreen extends StatelessWidget {
                 ),
               ),
             ),
-            MemberCustomCardWidget(),
-            SizedBox(
+            const MemberCustomCardWidget(),
+            const SizedBox(
               height: 30,
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomBarChartWidget extends StatelessWidget {
+  const CustomBarChartWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      color: Colors.transparent,
+      margin: const EdgeInsets.all(14.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15), // Optional: Rounded corners
+        side: BorderSide(
+          color: Colors.grey.shade300, // Border color
+          width: 1,          // Border width
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Text(
+              'This week',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Colors.black54,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: AppColor.brightGray,
+                      child: Text('S'),
+                    ),
+                    Text('2m'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: AppColor.brightGray,
+                      child: Text('M'),
+                    ),
+                    Text('2m'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: AppColor.greenColor,
+                      child: Text(
+                        'Tu',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      '2m',
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10.0),
+                      height: 120,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: AppColor.greenColor,
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            'W',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          )
+                      ),
+                    ),
+                    Text('210m'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10.0),
+                      height: 90,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: AppColor.greenColor,
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            'Th',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          )
+                      ),
+                    ),
+                    Text('120m'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10.0),
+                      height: 70,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: AppColor.greenColor,
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            'F',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          )
+                      ),
+                    ),
+                    Text('20m'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text('S'),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(''),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomStreakProgressCardWidget extends StatelessWidget {
+  const CustomStreakProgressCardWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      color: Colors.transparent,
+      margin: const EdgeInsets.all(14.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15), // Optional: Rounded corners
+        side: BorderSide(
+          color: Colors.grey.shade300, // Border color
+          width: 1,          // Border width
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // title
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "4d",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "7d",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            // progress_bar
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Text(
+                    "Current Streak",
+                    style: TextStyle(
+                        fontSize: 14,
+                    ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Flexible(
+                  flex: 1,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: LinearProgressIndicator(
+                      value: 0.4,
+                      backgroundColor: Colors.grey[300],
+                      color: AppColor.greenColor,
+                      minHeight: 12,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                const Text(
+                    "Next Milestone",
+                    style: TextStyle(
+                        fontSize: 14
+                    ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -355,6 +608,7 @@ class LifetimeActivityRowWidget extends StatelessWidget {
     );
   }
 }
+
 
 
 

@@ -32,11 +32,11 @@ class BadgeSectionWidget extends StatelessWidget {
                 dynamicText: 'Consistent',
               ),
               BadgeImageRowWidget(
-                dynamicImagePath: 'assets/images/streak_image.png',
+                dynamicImagePath: 'assets/images/search_image.png',
                 dynamicText: 'Search Explorer',
               ),
               BadgeImageRowWidget(
-                dynamicImagePath: 'assets/images/streak_image.png',
+                dynamicImagePath: 'assets/images/audio_image.png',
                 dynamicText: 'Audio Explorer',
               ),
             ],

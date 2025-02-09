@@ -13,10 +13,14 @@ class CustomImageColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      // mainAxisAlignment: MainAxisAlignment.start,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
             // 'assets/images/book_image.png'
             dynamicImagePath,
+          width: 100,
+          height: 100,
         ),
         Text(
           // 'Quran',

@@ -38,7 +38,13 @@ class PrayerDetailsCardWidget extends StatelessWidget {
                     fontSize: 24,
                   ),
                 ),
-                Text('Chennai, India'),
+                Text(
+                    'Chennai, India',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
             // prayer_time

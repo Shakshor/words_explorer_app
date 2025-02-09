@@ -52,13 +52,14 @@ class HomeTabScreen extends StatelessWidget {
           children: [
             /*-----------intro_part---------------*/
             const Padding(
-              padding: const EdgeInsets.only(
+              padding:  EdgeInsets.only(
                 top: 20,
                 left: 20,
                 right: 20,
               ),
               child: IntroductionTitleWidget(),
             ),
+            // progress
             const PrayerDetailsCardWidget(),
             const SizedBox(
               height: 20,
@@ -79,6 +80,20 @@ class HomeTabScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // present_prayer_timeline
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                        'Timeline',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -152,23 +167,23 @@ class CustomMosqueDetailsCardWidget extends StatelessWidget {
           children: [
             // details_row
             const CustomMosqueDetailsRowWidget(),
-            SizedBox(
+            const SizedBox(
               height: 6,
             ),
-            Text('Adhan 4:00 PM'),
-            Text.rich(
+            const Text('Adhan 4:00 PM'),
+            const Text.rich(
                 TextSpan(
                     children: [
                       TextSpan(
                         text:'Asar ',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 20,
                         )
                       ),
                       TextSpan(
                         text: '05:00 PM',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -176,27 +191,28 @@ class CustomMosqueDetailsCardWidget extends StatelessWidget {
                 )
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             // news
-            Text(
+            const Text(
                 'News',
               style: TextStyle(
                 color: Colors.black54,
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             // news_details
             Row(
               children: [
                 CircleAvatar(
+                  backgroundColor: Colors.grey.shade200,
                   radius: 30,
-                  child: Icon(
+                  child: const Icon(
                     Icons.document_scanner_outlined
                   ),
                 ),
@@ -433,23 +449,23 @@ class CustomGridImageWidget extends StatelessWidget {
           dynamicText: 'Quran',
         ),
         const CustomImageColumnWidget(
-          dynamicImagePath: 'assets/images/book_image.png',
+          dynamicImagePath: 'assets/images/hadith_books_image.png',
           dynamicText: 'Hadiths',
         ),
         const CustomImageColumnWidget(
-          dynamicImagePath: 'assets/images/book_image.png',
+          dynamicImagePath: 'assets/images/prayer_image.png',
           dynamicText: 'Prayer',
         ),
         const CustomImageColumnWidget(
-          dynamicImagePath: 'assets/images/book_image.png',
+          dynamicImagePath: 'assets/images/dua_image.png',
           dynamicText: 'Dua & Zikr',
         ),
         const CustomImageColumnWidget(
-          dynamicImagePath: 'assets/images/book_image.png',
+          dynamicImagePath: 'assets/images/qibla_image.png',
           dynamicText: 'Qibla',
         ),
         const CustomImageColumnWidget(
-          dynamicImagePath: 'assets/images/book_image.png',
+          dynamicImagePath: 'assets/images/mosques_image.png',
           dynamicText: 'Mosques',
         ),
       ],

@@ -17,9 +17,9 @@ class CustomMosqueDetailsRowWidget extends StatelessWidget {
         Row(
           children: [
             Image.asset(
-              'assets/images/ayat_image.png',
-              width: 50,
-              height: 50,
+              'assets/images/mosque_image.png',
+              width: 70,
+              height: 70,
               fit: BoxFit.cover,
             ),
             const SizedBox(width: 12),

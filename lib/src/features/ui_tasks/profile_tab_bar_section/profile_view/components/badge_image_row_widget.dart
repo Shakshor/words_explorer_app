@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../utils/app_color.dart';
 
 class BadgeImageRowWidget extends StatelessWidget {
@@ -19,9 +18,10 @@ class BadgeImageRowWidget extends StatelessWidget {
       children: [
         Image.asset(
           // 'assets/images/streak_image.png',
+          fit: BoxFit.contain,
           dynamicImagePath,
-          width: 80,
-          height: 80,
+          width: 100,
+          height: 100,
         ),
         const SizedBox(
           height: 6,
