@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:words_explorer_app/src/features/ui_tasks/profile_section/profile_view/components/custom_button.dart';
 import '../../../../utils/app_color.dart';
 import 'components/badge_section.dart';
 import 'components/common_header_title_widget.dart';
+import 'components/custom_button.dart';
 import 'components/daily_ayah_card_widget.dart';
 import 'components/header_card_widget.dart';
 import 'components/lifetime_activity_card_widget.dart';

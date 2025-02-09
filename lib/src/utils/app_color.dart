@@ -5,5 +5,6 @@ class AppColor{
   static const graniteGray = Color(0xff5C6961);
   static const brightGray = Color(0xffEEEEEE);
   static const tuscanRed = Color(0xff7c444f);
+  static const shadeBlueColor = Color(0xff29ABE2);
   static Color lightTeal = Colors.teal.shade50;
 }

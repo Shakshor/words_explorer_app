@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:words_explorer_app/src/features/ui_tasks/profile_section/profile_view/profile_tab_view.dart';
-
 import '../../../../utils/app_color.dart';
+import '../home_view/home_tab_screen.dart';
 
-class ProfileBottomNav extends StatefulWidget {
-  const ProfileBottomNav({super.key});
+
+class HomeBottomNav extends StatefulWidget {
+  const HomeBottomNav({super.key});
 
   @override
-  State<ProfileBottomNav> createState() => _ProfileBottomNavState();
+  State<HomeBottomNav> createState() => _HomeBottomNavState();
 }
 
-class _ProfileBottomNavState extends State<ProfileBottomNav> {
+class _HomeBottomNavState extends State<HomeBottomNav> {
 
 
   // state
@@ -19,10 +19,11 @@ class _ProfileBottomNavState extends State<ProfileBottomNav> {
   // pages
   // final instead of List
   final  pages = const [
-    ProfileTabScreen(),
-    ProfileTabScreen(),
-    ProfileTabScreen(),
-    ProfileTabScreen(),
+    HomeTabScreen(),
+    HomeTabScreen(),
+    HomeTabScreen(),
+    HomeTabScreen(),
+    HomeTabScreen(),
   ];
 
   // handle tap function
@@ -50,13 +51,29 @@ class _ProfileBottomNavState extends State<ProfileBottomNav> {
 
       // bottom navigation
       bottomNavigationBar: BottomNavigationBar(
-
         type: BottomNavigationBarType.fixed,
         // backgroundColor: Colors.green.shade400,
-        backgroundColor: AppColor.greenColor,
+        backgroundColor: Colors.white,
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white38,
+        // selectedItemColor: Colors.tealAccent.shade200,
+        selectedIconTheme: const IconThemeData(
+          color: AppColor.shadeBlueColor,
+          size: 26,
+        ),
+        selectedLabelStyle: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+        // unselectedItemColor: Colors.grey,
+        unselectedLabelStyle: const TextStyle(
+          fontSize: 14,
+          color: Colors.green,
+        ),
+        unselectedIconTheme: const IconThemeData(
+          color: Colors.grey,
+          size: 26,
+        ),
         showSelectedLabels: true,
         showUnselectedLabels: true,
 
@@ -73,22 +90,28 @@ class _ProfileBottomNavState extends State<ProfileBottomNav> {
 
           // planner_item
           BottomNavigationBarItem(
-            label: 'Planner',
-            icon: Icon(Icons.pending_actions_outlined),
+            label: 'Quran',
+            icon: Icon(Icons.book_outlined),
             // backgroundColor: Colors.green,
           ),
 
           // library_item
           BottomNavigationBarItem(
-              label: 'Library',
-              icon: Icon(Icons.library_books_outlined)
+              label: 'Mosques',
+              icon: Icon(Icons.mosque_outlined)
           ),
 
 
           // profile_item
           BottomNavigationBarItem(
+              label: 'Saves',
+              icon: Icon(Icons.bookmark_border_outlined)
+          ),
+
+          // profile_item
+          BottomNavigationBarItem(
               label: 'Profile',
-              icon: Icon(Icons.person_outline)
+              icon: Icon(Icons.person_outline),
           ),
         ],
       ),
